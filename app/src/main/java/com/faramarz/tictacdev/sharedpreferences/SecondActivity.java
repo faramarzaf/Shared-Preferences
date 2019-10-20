@@ -18,8 +18,13 @@ import butterknife.ButterKnife;
 public class SecondActivity extends AppCompatActivity {
 
     SharedPreferences pref;
-    @BindView(R.id.txt_welcome)
-    TextView txt_welcome;
+
+    @BindView(R.id.txtName)
+    TextView txtName;
+    @BindView(R.id.txtPass)
+    TextView txtPass;
+    @BindView(R.id.txtGen)
+    TextView txtGen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +33,10 @@ public class SecondActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         changeStatusBarColor();
         pref = getSharedPreferences("user_details", MODE_PRIVATE);
-        txt_welcome.setText("Welcome " + pref.getString("username", null));
+        txtName.setText("Name: " + pref.getString("username", null));
+        txtPass.setText("Password: " + pref.getString("password", null));
+        txtGen.setText("Gender: " + pref.getString("gender", null));
+
 
     }
 
