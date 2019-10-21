@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int mYear, mMonth, mDay;
     String maleGender = GenderEnum.MALE.getStringGender();
     String femaleGender = GenderEnum.FEMALE.getStringGender();
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 performLoginClick();
                 break;
             case R.id.txtSelectDate:
-                getCurrentDate();
+                getDate();
                 break;
         }
     }
@@ -78,10 +78,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pref = getSharedPreferences("user_details", MODE_PRIVATE);
         btn_login.setOnClickListener(this);
         txtSelectDate.setOnClickListener(this);
-        if (pref.contains("username")) {
+        int id = rgProfile.getCheckedRadioButtonId();
+        if (pref.contains("username") && rgProfile.getCheckedRadioButtonId() != -1) {
             edtUsername.setText(pref.getString("username", null));
             edtPassword.setText(pref.getString("password", null));
-
+            if (id == R.id.rbMale) {
+                rbMale.setChecked(true);
+                rbFemale.setChecked(false);
+            } else {
+                rbFemale.setChecked(true);
+                rbMale.setChecked(true);
+            }
         }
     }
 
@@ -104,13 +111,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     editor.putString("gender", femaleGender);
                     break;
             }
-
             editor.apply();
             startActivity(new Intent(MainActivity.this, SecondActivity.class));
         }
     }
 
-    private void getCurrentDate() {
+    private void getDate() {
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
