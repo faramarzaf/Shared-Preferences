@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.faramarz.tictacdev.sharedpreferences.enum_package.GenderEnum;
+
 import java.util.Calendar;
 
 import butterknife.BindView;
@@ -44,7 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     SharedPreferences pref;
     private int mYear, mMonth, mDay;
-
+    String maleGender = GenderEnum.MALE.getStringGender();
+    String femaleGender = GenderEnum.FEMALE.getStringGender();
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-    
+
     private void setSavedData() {
         pref = getSharedPreferences("user_details", MODE_PRIVATE);
         btn_login.setOnClickListener(this);
@@ -88,21 +92,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             showNullInputMessage();
         } else if (rgProfile.getCheckedRadioButtonId() != -1) {
             int id = rgProfile.getCheckedRadioButtonId();
-            View radioButton = rgProfile.findViewById(id);
-            int radioId = rgProfile.indexOfChild(radioButton);
-            RadioButton btn = (RadioButton) rgProfile.getChildAt(radioId);
-            String gender = (String) btn.getText();
             SharedPreferences.Editor editor = pref.edit();
             editor.putString("username", username);
             editor.putString("password", password);
-            editor.putString("gender", gender);
+
+            switch (id) {
+                case R.id.rbMale:
+                    editor.putString("gender", maleGender);
+                    break;
+                case R.id.rbFemale:
+                    editor.putString("gender", femaleGender);
+                    break;
+            }
+
             editor.apply();
             startActivity(new Intent(MainActivity.this, SecondActivity.class));
         }
     }
 
     private void getCurrentDate() {
-
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
