@@ -25,6 +25,9 @@ public class SecondActivity extends AppCompatActivity {
     TextView txtPass;
     @BindView(R.id.txtGen)
     TextView txtGen;
+    @BindView(R.id.txtDate)
+    TextView txtDate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +39,7 @@ public class SecondActivity extends AppCompatActivity {
         txtName.setText("Name: " + pref.getString("username", null));
         txtPass.setText("Password: " + pref.getString("password", null));
         txtGen.setText("Gender: " + pref.getString("gender", null));
-
-
+        txtDate.setText("Selected date is: "+pref.getInt("day",0)+"-"+pref.getInt("month",0)+"-"+pref.getInt("year",0));
     }
 
     private void changeStatusBarColor() {

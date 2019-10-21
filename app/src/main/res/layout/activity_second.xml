@@ -31,17 +31,29 @@
             <TextView
                 android:id="@+id/txtName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                />
 
             <TextView
                 android:id="@+id/txtPass"
                 android:layout_width="match_parent"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/txtGen"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                />
+
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                />
 
         </LinearLayout>
 

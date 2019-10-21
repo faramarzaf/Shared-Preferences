@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -14,5 +14,24 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+
+    <!--date picker customization attrs-->
+    <!--dayOfWeekBackground
+    dayOfWeekTextAppearance
+    headerMonthTextAppearance
+    headerDayOfMonthTextAppearance
+    headerYearTextAppearance
+    headerSelectedTextColor
+    yearListItemTextAppearance
+    yearListSelectorColor
+    calendarTextColor
+    calendarSelectedTextColor-->
+    <!-- date picker theme-->
+    <style name="DatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#00897B</item>
+        <item name="colorControlActivated">#3949AB</item>
+        <item name="colorControlHighlight">#D81B60</item>
+    </style>
 
 </resources>
