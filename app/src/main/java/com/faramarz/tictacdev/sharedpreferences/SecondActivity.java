@@ -36,10 +36,10 @@ public class SecondActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         changeStatusBarColor();
         pref = getSharedPreferences("user_details", MODE_PRIVATE);
-        txtName.setText("Name: " + pref.getString("username", null));
-        txtPass.setText("Password: " + pref.getString("password", null));
-        txtGen.setText("Gender: " + pref.getString("gender", null));
-        txtDate.setText("Selected date is: "+pref.getInt("day",0)+"-"+pref.getInt("month",0)+"-"+pref.getInt("year",0));
+        txtName.setText(pref.getString("username", null));
+        txtPass.setText(pref.getString("password", null));
+        txtGen.setText(pref.getString("gender", null));
+        txtDate.setText(pref.getInt("day",0)+"-"+pref.getInt("month",0)+"-"+pref.getInt("year",0));
     }
 
     private void changeStatusBarColor() {

@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // below code for draw underline on select date textview
         txtSelectDate.setPaintFlags(txtSelectDate.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         changeStatusBarColor();
+        clickEvents();
         setSavedData();
     }
 
@@ -74,20 +75,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void setSavedData() {
-        pref = getSharedPreferences("user_details", MODE_PRIVATE);
+    private void clickEvents() {
         btn_login.setOnClickListener(this);
         txtSelectDate.setOnClickListener(this);
+
+    }
+
+    private void setSavedData() {
+        pref = getSharedPreferences("user_details", MODE_PRIVATE);
         int id = rgProfile.getCheckedRadioButtonId();
-        if (pref.contains("username") && rgProfile.getCheckedRadioButtonId() != -1) {
+        if (pref.contains("username") && pref.contains("gender")) {
             edtUsername.setText(pref.getString("username", null));
             edtPassword.setText(pref.getString("password", null));
             if (id == R.id.rbMale) {
-                rbMale.setChecked(true);
-                rbFemale.setChecked(false);
-            } else {
-                rbFemale.setChecked(true);
-                rbMale.setChecked(true);
+                rbMale.setEnabled(true);
+            } else if (id == R.id.rbFemale) {
+                rbFemale.setEnabled(true);
             }
         }
     }
