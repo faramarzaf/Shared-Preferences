@@ -88,9 +88,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             edtUsername.setText(pref.getString("username", null));
             edtPassword.setText(pref.getString("password", null));
             if (id == R.id.rbMale) {
-                rbMale.setEnabled(true);
+                rbMale.setChecked(true);
             } else if (id == R.id.rbFemale) {
-                rbFemale.setEnabled(true);
+                rbFemale.setChecked(true);
             }
         }
     }
