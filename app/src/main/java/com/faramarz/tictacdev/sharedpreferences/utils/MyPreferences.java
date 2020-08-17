@@ -14,22 +14,6 @@ public class MyPreferences {
     @SuppressWarnings("deprecation")
     public static final int MODE = Context.MODE_PRIVATE;
 
-    // PREF KEYS
-    public static final String LANGUAGE = "LANGUAGE";
-    public static final String VIBRATE = "VIBRATE";
-    public static final String KEY_NAME = "NAME";
-    public static final String KEY_THEME = "THEME";
-    public static final String KEY_SENSITIVITY = "SENSITIVITY";
-    public static final String KEY_STEP_LENGTH = "STEP_LENGTH";
-
-    public static final String FIREBASE_TOKEN_REGISTERED = "FIREBASE_TOKEN_REGISTERED";
-    public static final String FIREBASE_TOKEN = "FIREBASE_TOKEN";
-
-    public final static String KEY_DO_NO_DISTURB = "DO_NOT_DISTURB";
-
-    public static final String KEY_PHONE_NUMBER = "PHONE_NUMBER";
-    public static final String KEY_SESSION_ID = "SESSION_ID";
-    public static final String KEY_SUBSCRIBER_ID = "SUBSCRIBER_ID";
 
     public static void writeBoolean(Context context, String key, boolean value) {
         getEditor(context).putBoolean(key, value).commit();

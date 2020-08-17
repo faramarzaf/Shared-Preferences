@@ -44,10 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.rgProfile)
     RadioGroup rgProfile;
 
-    SharedPreferences pref;
+    private SharedPreferences pref;
     private int mYear, mMonth, mDay;
-    String maleGender = GenderEnum.MALE.getStringGender();
-    String femaleGender = GenderEnum.FEMALE.getStringGender();
+    private String maleGender = GenderEnum.MALE.getStringGender();
+    private String femaleGender = GenderEnum.FEMALE.getStringGender();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

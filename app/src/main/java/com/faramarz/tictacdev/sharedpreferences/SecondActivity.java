@@ -17,8 +17,6 @@ import butterknife.ButterKnife;
 
 public class SecondActivity extends AppCompatActivity {
 
-    SharedPreferences pref;
-
     @BindView(R.id.txtName)
     TextView txtName;
     @BindView(R.id.txtPass)
@@ -27,6 +25,8 @@ public class SecondActivity extends AppCompatActivity {
     TextView txtGen;
     @BindView(R.id.txtDate)
     TextView txtDate;
+
+    private SharedPreferences pref;
 
 
     @Override
